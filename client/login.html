@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <form action="/api/login" method="POST">
+    <input type="text" name="name" id="name"/>
+    <input type="password" name="password" id="password"/>
+    <input type="submit" value="Login" id="loginBtn"/>
+  </form>
+
+  <script>
+    $('#loginBtn').click(event => {
+      event.preventDefault();
+      
+      $.ajax({
+        url: '/api/login',
+        type: 'POST',
+        data: {
+          name: $('#name').val(),
+          password: $('#password').val()
+        },
+        success: (data) => {
+          if (data.code === 1) {
+            location.href="/";
+          } else if (data.code === -1) {
+            alert(data.msg);
+          }
+        }
+      })
+    });
+  </script>
+</body>
+</html>
