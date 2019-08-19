@@ -6,6 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login</title>
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    body {
+      display: flex;
+      /* align-items: center; */
+      justify-content: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #name, #password, #loginBtn {
+      margin: 3px;
+      width: 150px;
+    }
+  </style>
 </head>
 <body>
   <form action="/api/login" method="POST">
